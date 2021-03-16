@@ -1,8 +1,8 @@
-- loosely but fast complie with `esbuild`:
-    ```bash
-    npm run fast
-    ```
-- powerful but slow complie with `tsc`:
-    ```bash
-    npm run slow
-    ```
+- complie .ts loosely but fast:
+  ```bash
+  npm run fast
+  ```
+- complie .ts powerfully but slow
+  ```bash
+  npm run slow
+  ```
