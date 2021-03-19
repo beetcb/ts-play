@@ -1,24 +1,28 @@
-interface ShapeX {
-  text: string
-}
+type Example = { key: 'k'; methods: Function }
 
-interface ShapeY {
-  text: number
-}
+/**
+ * infer gotcha
+ * @example
+ * fix:
+ * ```ts
+ * let willBeInferredAsMutableString = 'red' as const
+ * // or
+ * let willBeInferredAsMutableString: 'red' | 'green' = 'red'
+ * ```
+ */
+let willBeInferredAsMutableString = 'red'
+;((color: 'red' | 'green') => {})(willBeInferredAsMutableString) // Argument of type 'string' is not assignable to parameter of type '"red" | "green"'.
 
-interface ShapeZ {
-  text: boolean
-}
+/**
+ * generics used to create dynamic object props (based on one Type)
+ */
+type Dynamic<T> = { [K in keyof T]: T[K] }
+type Example2 = Dynamic<{ key: string; more: number; boo: boolean }>
 
-function draw(shape: ShapeX):void
-function draw(shape: ShapeY):void
-function draw(shape: ShapeZ):void
-function draw(shape: any):void {
-} // OK
-
-
-// Union
-function drawUsingUnion(shape: ShapeX | ShapeY | ShapeZ): void {
-  shape.text.slice()
-} // Property 'slice' does not exist on type 'string | number | boolean'.
-  // Property 'slice' does not exist on type 'number'.
+/**
+ * generics used to exclude object methods
+ */
+type ExcludeFunc<T> = {
+  [K in keyof T]: T[K] extends Function ? never : K
+}[keyof T]
+type Result3 = Pick<Example, ExcludeFunc<Example>>
