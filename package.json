@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "vite",
     "fast": "esbuild play.ts --outfile=run.js && node run.js",
     "slow": "tsc play.ts --outFile run.js && node run.js"
   },
