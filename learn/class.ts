@@ -1,4 +1,4 @@
-// class as type
+// class as type(more like an <interface>)
 class Box {
   size(this: Box) {
     return 0
@@ -47,3 +47,18 @@ class SingletonImpl {
     return SingletonImpl.instance
   }
 }
+
+// <implements>: standardize multi classes
+interface Z {
+  id: string
+}
+class Box7 implements Z {
+  id = 'init7'
+  iddeeper = 'init7'
+}
+class Box8 implements Box7 {
+  id = 'init8'
+  iddeeper = 'init8'
+  iddeeeper = 'init8'
+}
+// ...

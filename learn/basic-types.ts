@@ -46,7 +46,10 @@ type stringOrNumber = string | number
 /******************************************************/
 // Function
 let explicitFunc: (e: string) => void
-  // difference between void and undefined
+;(func: { (a: number): void }) => {}
+;(func: (a: number) => void) => {}
+
+// difference between void and undefined
 ;(func: () => void): void => {
   func()
 }
@@ -54,6 +57,5 @@ let explicitFunc: (e: string) => void
   func()
   return
 }
-
 
 export default {}
