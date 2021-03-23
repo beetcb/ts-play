@@ -26,3 +26,19 @@ type ExcludeFunc<T> = {
   [K in keyof T]: T[K] extends Function ? never : K
 }[keyof T]
 type Result3 = Pick<Example, ExcludeFunc<Example>>
+
+/**
+ * foo type guard
+ */
+type Foo =
+  | {
+      id: string
+      op: string
+    }
+  | {
+      id: string
+    }
+;(foo: Foo) => {
+  foo.op // Property 'op' does not exist on type 'Foo'.Property 'op' does not exist on type '{ id: string; }'.'
+  if ('op' in foo) foo.op // works well
+}
