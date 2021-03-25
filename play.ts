@@ -3,7 +3,7 @@ type Example = { key: 'k'; methods: Function }
 /**
  * infer gotcha
  * @example
- * fix:
+ * fix with type casting:
  * ```ts
  * let willBeInferredAsMutableString = 'red' as const
  * // or
