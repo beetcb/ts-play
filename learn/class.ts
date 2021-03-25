@@ -62,3 +62,10 @@ class Box8 implements Box7 {
   iddeeeper = 'init8'
 }
 // ...
+
+// Params as class private properties
+class Box9 {
+  constructor(private prop: string) {
+    console.log(prop)
+  }
+}
