@@ -69,3 +69,10 @@ class Box9 {
     console.log(prop)
   }
 }
+
+// Why we need class for type definition: typed & instantiate
+class Person {
+  constructor(age: number, gender: string, name: string, occupation: string) {}
+}
+;(person: Person) => {} // using it as type
+const person = new Person(18, '', '', '')
