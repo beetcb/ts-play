@@ -42,3 +42,14 @@ type Foo =
   foo.op // Property 'op' does not exist on type 'Foo'.Property 'op' does not exist on type '{ id: string; }'.'
   if ('op' in foo) foo.op // works well
 }
+
+// namespace test
+/// <reference path="learn/namespace-and-module.ts" />
+namespace Template {
+  const [gender, switcher]: [Gender, Switch] = [Gender.FEMALE, Switch.ON]
+  console.log(contextTest)
+}
+
+// ESM
+import test from './learn/namespace-and-module'
+import * as bundleOutput from './learn/namespace-and-module'
